@@ -1,4 +1,4 @@
-from music21 import note, stream
+from music21 import note, stream, chord
 
 # Nota
 # A - La
@@ -54,14 +54,50 @@ def do(un_pentagrama):
     do.duration.quarterLength = 2
     un_pentagrama.append(do)
 
+def miSiMi(unPentagrama):
+    mi3 = note.Note('E3')
+    mi3.duration.quarterLength = 0.5
+    unPentagrama.append(mi3)
+    si3 = note.Note('B3')
+    si3.duration.quarterLength = 0.5
+    unPentagrama.append(si3)
+    mi4 = note.Note('E4')
+    mi4.duration.quarterLength = 0.5
+    unPentagrama.append(mi4)
+
+def miSi3(unPentagrama):
+    mi3 = note.Note('E3')
+    mi3.duration.quarterLength = 0.5
+    unPentagrama.append(mi3)
+    si3 = note.Note('B3')
+    si3.duration.quarterLength = 0.5
+    unPentagrama.append(si3)
+
+def miSi4(unPentagrama):
+    mi4 = note.Note('E4')
+    mi4.duration.quarterLength = 0.5
+    unPentagrama.append(mi4)
+    si4 = note.Note('B4')
+    si4.duration.quarterLength = 0.5
+    unPentagrama.append(si4)
+
+def reDos5(unPentagrama):
+    re5 = note.Note('D5')
+    re5.duration.quarterLength = 0.5
+    unPentagrama.append(re5)
+    doSostenido5 = note.Note('C5#')
+    doSostenido5.duration.quarterLength = 0.5
+    unPentagrama.append(doSostenido5)
+
 # Crear el pentagrama que va a contener las notas de la partitura
 pentagrama = stream.Stream()
-do_re_mi(pentagrama)
-do_re_mi(pentagrama)
-re_mi(pentagrama)
-re_mi(pentagrama)
-do(pentagrama)
-do(pentagrama)
+for i in range(8):
+    miSi3(pentagrama)
+    miSi4(pentagrama)
+miSiMi(pentagrama)
+reDos5(pentagrama)
+
+
 pentagrama.show()
 
 # Abrir el reproductor de midi's con un archivo midi con la nota Do
