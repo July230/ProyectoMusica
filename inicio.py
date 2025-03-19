@@ -22,3 +22,7 @@ print(miNota.octave)
 print(miNota.pitch)
 print(miNota.pitch.frequency)
 print(miNota.pitch.spanish)
+print(miNota.duration.quarterLength)
+miNota.duration.quarterLength = 3
+print(miNota.duration.quarterLength)
+miNota.show()
