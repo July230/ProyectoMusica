@@ -35,6 +35,9 @@ def silencioDeBlancoYMedio(unPentagrama):
     silencio.duration.quarterLength = 3
     unPentagrama.append(silencio)
 
+# mano derecha
+
+# mano izquierda
 def do4Sol4Lab4(unPentagrama):
     do4 = note.Note("C")
     do4.duration.quarterLength = 0.5
@@ -86,6 +89,27 @@ def do4Mib4Fa4(unPentagrama):
     Fa4 = note.Note("F4")
     Fa4.duration.quarterLength = 2
     unPentagrama.append(Fa4)
+
+def do4Re4Mib4Re4Sib3(unPentagrama):
+    do4 = note.Note("C")
+    do4.duration.quarterLength = 0.5
+    unPentagrama.append(do4)
+
+    re4 = note.Note("D4")
+    re4.duration.quarterLength = 0.5
+    unPentagrama.append(re4)
+
+    mib4 = note.Note("E-4")
+    mib4.duration.quarterLength = 0.5
+    unPentagrama.append(mib4)
+
+    re4 = note.Note("D4")
+    re4.duration.quarterLength = 0.5
+    unPentagrama.append(re4)
+
+    sib3 = note.Note("E-3")
+    sib3.duration.quarterLength = 1
+    unPentagrama.append(sib3)
 
 
 
