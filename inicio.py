@@ -1,4 +1,4 @@
-from music21 import note, stream, chord, tempo, clef
+from music21 import note, stream, chord, tempo, clef, instrument
 
 # Nota
 # A - La
@@ -122,9 +122,13 @@ def claveDeFa(unPentagrama):
     claveFa = clef.FClef()
     unPentagrama.append(claveFa)
 
+# usar la guitarra
+def guitarra(unPentagrama):
+    unPentagrama.insert(0, instrument.Guitar()) # (intervalo del compas, instrumento)
 
 # Crear el pentagrama que va a contener las notas de la partitura
 pentagrama = stream.Stream()
+guitarra(pentagrama)
 definirTempo(pentagrama)
 escalaDeLa(pentagrama)
 claveDeFa(pentagrama)
