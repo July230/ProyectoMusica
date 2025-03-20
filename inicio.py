@@ -1,4 +1,4 @@
-from music21 import note, stream, chord
+from music21 import note, stream, chord, tempo
 
 # Nota
 # A - La
@@ -28,6 +28,15 @@ def imprimirNota():
     miNota.duration.quarterLength = 3
     print(miNota.duration.quarterLength)
 
+def definirTempo(unPentagrama):
+    # Crear un objeto de tempo (metronome mark)
+    tiempo = tempo.MetronomeMark(number=140)
+    tiempo.number
+    tiempo.referent
+    tiempo.referent.type
+    unPentagrama.append(tiempo)
+    print(tiempo.text)
+
 # funcion que imprimer las notas do re y mi siendo mi una blanca
 def do_re_mi(unPentagrama):
     do = note.Note('C')
@@ -56,37 +65,28 @@ def do(un_pentagrama):
 
 def miSiMi(unPentagrama):
     mi3 = note.Note('E3')
-    mi3.duration.quarterLength = 0.5
     unPentagrama.append(mi3)
     si3 = note.Note('B3')
-    si3.duration.quarterLength = 0.5
     unPentagrama.append(si3)
     mi4 = note.Note('E4')
-    mi4.duration.quarterLength = 0.5
     unPentagrama.append(mi4)
 
 def miSi3(unPentagrama):
     mi3 = note.Note('E3')
-    mi3.duration.quarterLength = 0.5
     unPentagrama.append(mi3)
     si3 = note.Note('B3')
-    si3.duration.quarterLength = 0.5
     unPentagrama.append(si3)
 
 def miSi4(unPentagrama):
     mi4 = note.Note('E4')
-    mi4.duration.quarterLength = 0.5
     unPentagrama.append(mi4)
     si4 = note.Note('B4')
-    si4.duration.quarterLength = 0.5
     unPentagrama.append(si4)
 
 def reDos5(unPentagrama):
     re5 = note.Note('D5')
-    re5.duration.quarterLength = 0.5
     unPentagrama.append(re5)
     doSostenido5 = note.Note('C5#')
-    doSostenido5.duration.quarterLength = 0.5
     unPentagrama.append(doSostenido5)
 
 def doMenor(unPentagrama):
@@ -96,7 +96,12 @@ def doMenor(unPentagrama):
 
 # Crear el pentagrama que va a contener las notas de la partitura
 pentagrama = stream.Stream()
-doMenor(pentagrama)
+definirTempo(pentagrama)
+for i in range(8):
+    miSi3(pentagrama)
+    miSi4(pentagrama)
+miSiMi(pentagrama)
+reDos5(pentagrama)
 
 pentagrama.show()
 
