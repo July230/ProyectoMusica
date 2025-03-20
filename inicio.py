@@ -30,7 +30,7 @@ def imprimirNota():
 
 def definirTempo(unPentagrama):
     # Crear un objeto de tempo (metronome mark)
-    tiempo = tempo.MetronomeMark(number=140)
+    tiempo = tempo.MetronomeMark(number=120)
     tiempo.number
     tiempo.referent
     tiempo.referent.type
@@ -97,6 +97,11 @@ def doMenor(unPentagrama):
 # Un silencio o descanso es una nota que no se ejecuta
 def silencioDeNegra(unPentagrama):
     silencio = note.Rest()
+    unPentagrama.append(silencio)
+
+def silencioDeBlancoYMedio(unPentagrama):
+    silencio = note.Rest()
+    silencio.duration.quarterLength = 3
     unPentagrama.append(silencio)
 
 def escalaDeLa(unPentagrama):
@@ -232,6 +237,7 @@ partitura = stream.Score()
 pentagrama1 = stream.Part()
 claveDeFa(pentagrama1)
 tiempoTresCuartos(pentagrama1)
+definirTempo(pentagrama1)
 piano(pentagrama1)
 laMi(pentagrama1)
 siDoYFa(pentagrama1)
@@ -260,10 +266,23 @@ for i in range(4):
     reYSol(pentagrama1)
     do(pentagrama1)
 
+laMi(pentagrama1)
+siDoYFa(pentagrama1)
+si(pentagrama1)
+doYFa(pentagrama1)
+si(pentagrama1)
+laDoYFa(pentagrama1)
+siYMi(pentagrama1)
+la3DoYFa(pentagrama1)
+si(pentagrama1)
+doYFa(pentagrama1)
+si(pentagrama1)
+
 # Crear segundo pentagrama
 pentagrama2 = stream.Part()
 claveDeSol(pentagrama2)
 tiempoTresCuartos(pentagrama2)
+definirTempo(pentagrama1)
 piano(pentagrama2)
 silencioDeNegra(pentagrama2)
 miOctavado(pentagrama2)
@@ -275,6 +294,13 @@ reOctavado(pentagrama2)
 solOctavadoDosTiempos(pentagrama2)
 faOctavado(pentagrama2)
 miOctavadoTresTiempos(pentagrama2)
+silencioDeBlancoYMedio(pentagrama2)
+silencioDeBlancoYMedio(pentagrama2)
+silencioDeBlancoYMedio(pentagrama2)
+silencioDeNegra(pentagrama2)
+miOctavado(pentagrama2)
+reOctavado(pentagrama2)
+laOctavadoTresTiempos(pentagrama2)
 
 
 partitura.append(pentagrama2)
