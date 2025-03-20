@@ -20,6 +20,21 @@ def definirTempo(unPentagrama):
     unPentagrama.append(tiempo)
     print(tiempo.text)
 
+# cambiar a clave de fa
+def claveDeFa(unPentagrama):
+    claveFa = clef.FClef()
+    unPentagrama.append(claveFa)
+
+# cambiar a clave de sol
+def claveDeSol(unPentagrama):
+    claveSol = clef.GClef()
+    unPentagrama.append(claveSol)
+
+def silencioDeBlancoYMedio(unPentagrama):
+    silencio = note.Rest()
+    silencio.duration.quarterLength = 3
+    unPentagrama.append(silencio)
+
 def do4Sol4Lab4(unPentagrama):
     do4 = note.Note("C")
     do4.duration.quarterLength = 0.5
