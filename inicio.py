@@ -1,4 +1,4 @@
-from music21 import note, stream, chord, tempo, clef, instrument
+from music21 import note, stream, chord, tempo, clef, meter, instrument
 
 # Nota
 # A - La
@@ -126,13 +126,68 @@ def claveDeFa(unPentagrama):
 def guitarra(unPentagrama):
     unPentagrama.insert(0, instrument.Guitar()) # (intervalo del compas, instrumento)
 
+def tiempoTresCuartos(unPentagrama):
+    tiempoTresCuartos = meter.TimeSignature("3/4")
+    unPentagrama.append(tiempoTresCuartos)
+
+def laMi(unPentagrama):
+    la2 = note.Note('A2')
+    la2.duration.quarterLength = 0.5
+    unPentagrama.append(la2)
+    mi2 = note.Note('E3')
+    mi2.duration.quarterLength = 0.5
+    unPentagrama.append(mi2)
+
+def siDoYFa(unPentagrama):
+    siDoYFA = chord.Chord(["A3", "C4", "F4"])
+    siDoYFA.duration.quarterLength = 0.5
+    unPentagrama.append(siDoYFA)
+
+def doYFa(unPentagrama):
+    doYFA = chord.Chord(["C4", "F4"])
+    doYFA.duration.quarterLength = 0.5
+    unPentagrama.append(doYFA)
+
+def laDoYFa(unPentagrama):
+    laDoYFa = chord.Chord(["A2", "C4", "F4"])
+    laDoYFa.duration.quarterLength = 0.5
+    unPentagrama.append(laDoYFa)
+
+def la3DoYFa(unPentagrama):
+    la3DoYFa = chord.Chord(["A3", "C4", "F4"])
+    la3DoYFa.duration.quarterLength = 0.5
+    unPentagrama.append(la3DoYFa)
+
+def siYMi(unPentagrama):
+    siYMi = chord.Chord(["E3", "B3"])
+    siYMi.duration.quarterLength = 0.5
+    unPentagrama.append(siYMi)
+
+def si(unPentagrama):
+    si3 = note.Note('B3')
+    si3.duration.quarterLength = 0.5
+    unPentagrama.append(si3)
+
 # Crear el pentagrama que va a contener las notas de la partitura
 pentagrama = stream.Stream()
+tiempoTresCuartos(pentagrama)
 guitarra(pentagrama)
-definirTempo(pentagrama)
-escalaDeLa(pentagrama)
-claveDeFa(pentagrama)
-escalaDeLa(pentagrama)
+for i in range(4):
+    laMi(pentagrama)
+    siDoYFa(pentagrama)
+    si(pentagrama)
+    doYFa(pentagrama)
+    si(pentagrama)
+    laDoYFa(pentagrama)
+    siYMi(pentagrama)
+    la3DoYFa(pentagrama)
+    si(pentagrama)
+    doYFa(pentagrama)
+    si(pentagrama)
+    la3DoYFa(pentagrama)
+    si(pentagrama)
+    doYFa(pentagrama)
+
 
 pentagrama.show()
 
