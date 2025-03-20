@@ -94,6 +94,11 @@ def doMenor(unPentagrama):
     doMenor4.duration.quarterLength = 4
     unPentagrama.append(doMenor4)
 
+# Un silencio o descanso es una nota que no se ejecuta
+def silencioDeNegra(unPentagrama):
+    silencio = note.Rest()
+    unPentagrama.append(silencio)
+
 # Crear el pentagrama que va a contener las notas de la partitura
 pentagrama = stream.Stream()
 definirTempo(pentagrama)
@@ -102,6 +107,7 @@ for i in range(8):
     miSi4(pentagrama)
 miSiMi(pentagrama)
 reDos5(pentagrama)
+silencioDeNegra(pentagrama)
 
 pentagrama.show()
 
