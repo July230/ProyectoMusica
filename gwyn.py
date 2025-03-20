@@ -253,7 +253,10 @@ laOctavadoTresTiempos(pentagrama2)
 
 partitura.append(pentagrama2)
 partitura.append(pentagrama1)
-partitura.show()
+# partitura.show()
 
 # Abrir el reproductor de midi's con un archivo midi con la nota Do
 # miNota.show('midi')
+
+# Crear y escribir la cancion
+partitura.write('midi', 'gwyn.mid')
