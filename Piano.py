@@ -19,8 +19,34 @@ do5 = 'Notas/do5.mid'
 
 notas = "asdfghjk"
 
-#while True:
-    #tecla = input()
+def teclado():
+    while True:
+        tecla = input()
+        if tecla == 'a':
+            mixer.music.load(do)
+            mixer.music.play()
+        if tecla == 's':
+            mixer.music.load(re)
+            mixer.music.play()
+        if tecla == 'd':
+            mixer.music.load(mi)
+            mixer.music.play()
+        if tecla == 'f':
+            mixer.music.load(fa)
+            mixer.music.play()
+        if tecla == 'g':
+            mixer.music.load(sol)
+            mixer.music.play()
+        if tecla == 'h':
+            mixer.music.load(la)
+            mixer.music.play()
+        if tecla == 'j':
+            mixer.music.load(si)
+            mixer.music.play()
+        if tecla == 'k':
+            mixer.music.load(do5)
+            mixer.music.play()
+
 
 def escalaDeDo(): 
     for tecla in notas:
@@ -50,4 +76,5 @@ def escalaDeDo():
             mixer.music.play()
         time.sleep(0.5)
     
-escalaDeDo()
+#escalaDeDo()
+teclado()
