@@ -41,13 +41,13 @@ def do5(unPentagrama):
     do5.duration.quarterLength = 1
     unPentagrama.append(do5)
 
-def do5BlancaYPunto(unPentagrama):
-    do5 = note.Note("C5")
-    do5.duration.quarterLength = 3
-    unPentagrama.append(do5)
+def re5BlancaYPunto(unPentagrama):
+    re5 = note.Note("D5")
+    re5.duration.quarterLength = 3
+    unPentagrama.append(re5)
 
 def re5Mib5Corcheas(unPentagrama):
-    re5 = note.Note("C5")
+    re5 = note.Note("D5")
     re5.duration.quarterLength = 0.5
     unPentagrama.append(re5)
 
@@ -141,8 +141,8 @@ compasTresCuartos(pentagrama1)
 definirTempo(pentagrama1)
 for i in range(2):
     do5(pentagrama1)
-
-do5BlancaYPunto(pentagrama1)
+re5Mib5Corcheas(pentagrama1)
+re5BlancaYPunto(pentagrama1)
 
 # Crear segundo pentagrama que va a contener la melodia
 pentagrama2 = stream.Part()
@@ -152,8 +152,8 @@ do4Sol4Lab4(pentagrama2)
 do4Fa4Sol4(pentagrama2)
 do4Mib4Fa4(pentagrama2)
 
-partitura.append(pentagrama2)
 partitura.append(pentagrama1)
+partitura.append(pentagrama2)
 partitura.show()
 
 # Crear y escribir la cancion
