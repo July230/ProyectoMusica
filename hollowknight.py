@@ -36,15 +36,38 @@ def silencioDeBlancoYMedio(unPentagrama):
     unPentagrama.append(silencio)
 
 # mano derecha
-def do5(unPentagrama):
+def do5Negra(unPentagrama):
     do5 = note.Note("C5")
-    do5.duration.quarterLength = 1
     unPentagrama.append(do5)
+
+def solSostenido4Negra(unPentagrama):
+    solSostenido4 = note.Note("G#4")
+    unPentagrama.append(solSostenido4)
 
 def re5BlancaYPunto(unPentagrama):
     re5 = note.Note("D5")
     re5.duration.quarterLength = 3
     unPentagrama.append(re5)
+
+def sol4BlancaYPunto(unPentagrama):
+    sol4 = note.Note("G4")
+    sol4.duration.quarterLength = 3
+    unPentagrama.append(sol4)
+
+def do5Corchea(unPentagrama):
+    do5 = note.Note("C5")
+    do5.duration.quarterLength = 0.5
+    unPentagrama.append(do5)
+
+def sol4Corchea(unPentagrama):
+    sol4 = note.Note("G4")
+    sol4.duration.quarterLength = 0.5
+    unPentagrama.append(sol4)
+
+def fa4Corchea(unPentagrama):
+    fa4 = note.Note("F4")
+    fa4.duration.quarterLength = 0.5
+    unPentagrama.append(fa4)
 
 def re5Mib5Corcheas(unPentagrama):
     re5 = note.Note("D5")
@@ -126,7 +149,7 @@ def do4Re4Mib4Re4Sib3(unPentagrama):
     re4.duration.quarterLength = 0.5
     unPentagrama.append(re4)
 
-    sib3 = note.Note("E-3")
+    sib3 = note.Note("B-3")
     sib3.duration.quarterLength = 1
     unPentagrama.append(sib3)
 
@@ -140,9 +163,15 @@ pentagrama1 = stream.Part()
 compasTresCuartos(pentagrama1)
 definirTempo(pentagrama1)
 for i in range(2):
-    do5(pentagrama1)
+    do5Negra(pentagrama1)
 re5Mib5Corcheas(pentagrama1)
 re5BlancaYPunto(pentagrama1)
+do5Corchea(pentagrama1)
+sol4Corchea(pentagrama1)
+solSostenido4Negra(pentagrama1)
+sol4Corchea(pentagrama1)
+fa4Corchea(pentagrama1)
+sol4BlancaYPunto(pentagrama1)
 
 # Crear segundo pentagrama que va a contener la melodia
 pentagrama2 = stream.Part()
@@ -151,6 +180,7 @@ definirTempo(pentagrama2)
 do4Sol4Lab4(pentagrama2)
 do4Fa4Sol4(pentagrama2)
 do4Mib4Fa4(pentagrama2)
+do4Re4Mib4Re4Sib3(pentagrama2)
 
 partitura.append(pentagrama1)
 partitura.append(pentagrama2)
