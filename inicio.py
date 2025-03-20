@@ -99,15 +99,28 @@ def silencioDeNegra(unPentagrama):
     silencio = note.Rest()
     unPentagrama.append(silencio)
 
+def escalaDeLa(unPentagrama):
+    la3 = note.Note('A3')
+    unPentagrama.append(la3)
+    si3 = note.Note('B3')
+    unPentagrama.append(si3)
+    doSostenido4 = note.Note('C#4')
+    unPentagrama.append(doSostenido4)
+    re4 = note.Note('D4')
+    unPentagrama.append(re4)
+    mi4 = note.Note('E4')
+    unPentagrama.append(mi4)
+    faSostenido4 = note.Note('F#4')
+    unPentagrama.append(faSostenido4)
+    solSostenido4 = note.Note('G#4')
+    unPentagrama.append(solSostenido4)
+    la4 = note.Note('A4')
+    unPentagrama.append(la4)
+
 # Crear el pentagrama que va a contener las notas de la partitura
 pentagrama = stream.Stream()
 definirTempo(pentagrama)
-for i in range(8):
-    miSi3(pentagrama)
-    miSi4(pentagrama)
-miSiMi(pentagrama)
-reDos5(pentagrama)
-silencioDeNegra(pentagrama)
+escalaDeLa(pentagrama)
 
 pentagrama.show()
 
