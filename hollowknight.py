@@ -36,6 +36,25 @@ def silencioDeBlancoYMedio(unPentagrama):
     unPentagrama.append(silencio)
 
 # mano derecha
+def do5(unPentagrama):
+    do5 = note.Note("C5")
+    do5.duration.quarterLength = 1
+    unPentagrama.append(do5)
+
+def do5BlancaYPunto(unPentagrama):
+    do5 = note.Note("C5")
+    do5.duration.quarterLength = 3
+    unPentagrama.append(do5)
+
+def re5Mib5Corcheas(unPentagrama):
+    re5 = note.Note("C5")
+    re5.duration.quarterLength = 0.5
+    unPentagrama.append(re5)
+
+    mib5 = note.Note("E-5")
+    mib5.duration.quarterLength = 0.5
+    unPentagrama.append(mib5)
+
 
 # mano izquierda
 def do4Sol4Lab4(unPentagrama):
@@ -120,6 +139,10 @@ partitura = stream.Score()
 pentagrama1 = stream.Part()
 compasTresCuartos(pentagrama1)
 definirTempo(pentagrama1)
+for i in range(2):
+    do5(pentagrama1)
+
+do5BlancaYPunto(pentagrama1)
 
 # Crear segundo pentagrama que va a contener la melodia
 pentagrama2 = stream.Part()
