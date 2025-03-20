@@ -1,4 +1,4 @@
-from music21 import note, stream, chord, tempo
+from music21 import note, stream, chord, tempo, clef
 
 # Nota
 # A - La
@@ -117,9 +117,17 @@ def escalaDeLa(unPentagrama):
     la4 = note.Note('A4')
     unPentagrama.append(la4)
 
+# cambiar a clave de fa
+def claveDeFa(unPentagrama):
+    claveFa = clef.FClef()
+    unPentagrama.append(claveFa)
+
+
 # Crear el pentagrama que va a contener las notas de la partitura
 pentagrama = stream.Stream()
 definirTempo(pentagrama)
+escalaDeLa(pentagrama)
+claveDeFa(pentagrama)
 escalaDeLa(pentagrama)
 
 pentagrama.show()
