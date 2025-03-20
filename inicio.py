@@ -89,14 +89,14 @@ def reDos5(unPentagrama):
     doSostenido5.duration.quarterLength = 0.5
     unPentagrama.append(doSostenido5)
 
+def doMenor(unPentagrama):
+    doMenor4 = chord.Chord(["C4", "E-4", "G4"])
+    doMenor4.duration.quarterLength = 4
+    unPentagrama.append(doMenor4)
+
 # Crear el pentagrama que va a contener las notas de la partitura
 pentagrama = stream.Stream()
-for i in range(8):
-    miSi3(pentagrama)
-    miSi4(pentagrama)
-miSiMi(pentagrama)
-reDos5(pentagrama)
-
+doMenor(pentagrama)
 
 pentagrama.show()
 
