@@ -122,6 +122,11 @@ def claveDeFa(unPentagrama):
     claveFa = clef.FClef()
     unPentagrama.append(claveFa)
 
+# cambiar a clave de sol
+def claveDeSol(unPentagrama):
+    claveSol = clef.GClef()
+    unPentagrama.append(claveSol)
+
 # usar la guitarra
 def guitarra(unPentagrama):
     unPentagrama.insert(0, instrument.Guitar()) # (intervalo del compas, instrumento)
@@ -168,28 +173,62 @@ def si(unPentagrama):
     si3.duration.quarterLength = 0.5
     unPentagrama.append(si3)
 
-# Crear el pentagrama que va a contener las notas de la partitura
-pentagrama = stream.Stream()
-tiempoTresCuartos(pentagrama)
-guitarra(pentagrama)
+def miOctavado(unPentagrama):
+    miOctavado = chord.Chord(["E5", "E6"])
+    unPentagrama.append(miOctavado)
+
+def reOctavado(unPentagrama):
+    reOctavado = chord.Chord(["D5", "D6"])
+    unPentagrama.append(reOctavado)
+
+def laOctavado(unPentagrama):
+    laOctavado = chord.Chord(["A4", "A5"])
+    laOctavado.duration.quarterLength = 3
+    unPentagrama.append(laOctavado)
+
+
+
+# Crear la partitura
+partitura = stream.Score()
+
+# Crear primer pentagrama que va a contener las notas de la partitura (Clave de Fa, para guitarra)
+
+pentagrama1 = stream.Part()
+claveDeFa(pentagrama1)
+tiempoTresCuartos(pentagrama1)
+guitarra(pentagrama1)
+laMi(pentagrama1)
+siDoYFa(pentagrama1)
+si(pentagrama1)
+doYFa(pentagrama1)
+si(pentagrama1)
+laDoYFa(pentagrama1)
+siYMi(pentagrama1)
+la3DoYFa(pentagrama1)
+si(pentagrama1)
+doYFa(pentagrama1)
+si(pentagrama1)
 for i in range(4):
-    laMi(pentagrama)
-    siDoYFa(pentagrama)
-    si(pentagrama)
-    doYFa(pentagrama)
-    si(pentagrama)
-    laDoYFa(pentagrama)
-    siYMi(pentagrama)
-    la3DoYFa(pentagrama)
-    si(pentagrama)
-    doYFa(pentagrama)
-    si(pentagrama)
-    la3DoYFa(pentagrama)
-    si(pentagrama)
-    doYFa(pentagrama)
+    laDoYFa(pentagrama1)
+    siYMi(pentagrama1)
+    la3DoYFa(pentagrama1)
+    si(pentagrama1)
+    doYFa(pentagrama1)
+    si(pentagrama1)
 
+# Crear segundo pentagrama
+pentagrama2 = stream.Part()
+claveDeSol(pentagrama2)
+tiempoTresCuartos(pentagrama2)
+guitarra(pentagrama2)
+silencioDeNegra(pentagrama2)
+miOctavado(pentagrama2)
+reOctavado(pentagrama2)
+laOctavado(pentagrama2)
 
-pentagrama.show()
+partitura.append(pentagrama2)
+partitura.append(pentagrama1)
+partitura.show()
 
 # Abrir el reproductor de midi's con un archivo midi con la nota Do
 # miNota.show('midi')
