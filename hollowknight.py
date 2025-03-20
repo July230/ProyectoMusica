@@ -4,6 +4,13 @@ Ian Julián Estrada Castro
 
 from music21 import note, stream, chord, tempo, clef, meter, instrument
 
+def piano(unPentagrama):
+    unPentagrama.insert(0, instrument.Piano())
+
+def compasTresCuartos(unPentagrama):
+    tiempoTresCuartos = meter.TimeSignature("3/4")
+    unPentagrama.append(tiempoTresCuartos)
+
 def definirTempo(unPentagrama):
     # Crear un objeto de tempo (metronome mark)
     tiempo = tempo.MetronomeMark(number=55)
@@ -39,7 +46,20 @@ def do4Fa4Sol4(unPentagrama):
     sol4.duration.quarterLength = 2
     unPentagrama.append(sol4)
 
-def do4Fa4Sol4(unPentagrama):
+def do4Mib4Fa4(unPentagrama):
+    do4 = note.Note("C")
+    do4.duration.quarterLength = 0.5
+    unPentagrama.append(do4)
+
+    mib4 = note.Note("E-4")
+    mib4.duration.quarterLength = 0.5
+    unPentagrama.append(mib4)
+
+    Fa4 = note.Note("F4")
+    Fa4.duration.quarterLength = 2
+    unPentagrama.append(Fa4)
+
+def do4Mib4Fa4(unPentagrama):
     do4 = note.Note("C")
     do4.duration.quarterLength = 0.5
     unPentagrama.append(do4)
@@ -59,13 +79,16 @@ partitura = stream.Score()
 
 # Crear primer pentagrama que va a contener la armonia
 pentagrama1 = stream.Part()
+compasTresCuartos(pentagrama1)
 definirTempo(pentagrama1)
 
 # Crear segundo pentagrama que va a contener la melodia
 pentagrama2 = stream.Part()
+compasTresCuartos(pentagrama2)
 definirTempo(pentagrama2)
 do4Sol4Lab4(pentagrama2)
 do4Fa4Sol4(pentagrama2)
+do4Mib4Fa4(pentagrama2)
 
 partitura.append(pentagrama2)
 partitura.append(pentagrama1)
