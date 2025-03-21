@@ -7,6 +7,9 @@ from music21 import note, stream, chord, tempo, clef, meter, instrument, spanner
 def piano(unPentagrama):
     unPentagrama.insert(0, instrument.Piano())
 
+def violin(unPentagrama):
+    unPentagrama.insert(0, instrument.Viola())
+
 def compasTresCuartos(unPentagrama):
     tiempoTresCuartos = meter.TimeSignature("3/4")
     unPentagrama.append(tiempoTresCuartos)
@@ -265,6 +268,10 @@ fa5BlancaYPunto(pentagrama1)
 sol5Mib5Re5Do5Sib4(pentagrama1)
 do5BlancaYPunto(pentagrama1)
 silencioDeBlancoYMedio(pentagrama1)
+for i in range(2):
+    do5Negra(pentagrama1)
+re5Mib5Corcheas(pentagrama1)
+re5BlancaYPunto(pentagrama1)
 
 # Crear segundo pentagrama que va a contener la melodia
 # mano izquierda
@@ -285,11 +292,28 @@ fa4Blanca(pentagrama2)
 fa3Sib3Do4Fa4Do4Sib3(pentagrama2)
 acordeFaMayor(pentagrama2)
 mib3Negra(pentagrama2)
+do4Sol4Lab4(pentagrama2)
+do4Fa4Sol4(pentagrama2)
+do4Mib4Fa4(pentagrama2)
+
+# parte de violin
+pentagrama3 = stream.Part()
+compasTresCuartos(pentagrama3)
+definirTempo(pentagrama3)
+violin(pentagrama3)
+for i in range(9):
+    silencioDeBlancoYMedio(pentagrama3)
+for i in range(2):
+    do5Negra(pentagrama3)
+re5Mib5Corcheas(pentagrama3)
+re5BlancaYPunto(pentagrama3)
+
 
 
 
 partitura.append(pentagrama1)
 partitura.append(pentagrama2)
+partitura.append(pentagrama3)
 partitura.show()
 
 # Crear y escribir la cancion
