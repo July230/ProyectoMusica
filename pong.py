@@ -9,7 +9,25 @@ import time
 import random
 from pygame import mixer
 
+# Initialising pygame and mixer
 pygame.init()
+mixer.init()
+
+# Initialize background music
+mixer.music.load('./hollowknight.mid')
+mixer.music.play(-1) # infinite loop
+
+# Control time and pause
+music_paused_time = 0
+pause_duration = 500  # Time in miliseconds (0.5 seconds)
+
+def pause_midi():
+    pygame.mixer.music.pause()
+
+# Resume playback function
+def unpause_midi():
+    pygame.mixer.music.unpause()
+
 
 # Font that is used to render the text
 font20 = pygame.font.Font('freesansbold.ttf', 20)
