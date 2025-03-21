@@ -1,6 +1,6 @@
-# Programando música en Python
+# Semana Tec: Aprende a programar música en Python
 
-Este proyecto consiste en usar la libería music21 
+Este proyecto consiste en usar la libería music21 de python.
 
 - Es necesario contar con python en su versión 3.11 o superior. ['python.org'](https://www.python.org/downloads/)
 
@@ -9,6 +9,9 @@ Este proyecto consiste en usar la libería music21
 - ['pygame'](https://www.pygame.org/wiki/GettingStarted)
 - ['musescore'](https://musescore.org/es)
 
+## Recursos de apoyo
+- ['MIDI'](https://es.wikipedia.org/wiki/MIDI)
 
-## Anaconda
-- Para este proyecto instalé anaconda ['anaconda'](https://www.anaconda.com/)
+# Integrantes
+- Ian Julián Estrada Castro - A01352823
+- Ernesto Acosta Ruiz - A01364982
