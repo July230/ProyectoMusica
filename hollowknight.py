@@ -48,6 +48,10 @@ def do5BlancaYPunto(unPentagrama):
     do5.duration.quarterLength = 3
     unPentagrama.append(do5)
 
+def re3Negra(unPentagrama):
+    re3 = note.Note("D3")
+    unPentagrama.append(re3)
+
 def solSostenido4Negra(unPentagrama):
     solSostenido4 = note.Note("G#4")
     unPentagrama.append(solSostenido4)
@@ -55,6 +59,10 @@ def solSostenido4Negra(unPentagrama):
 def mib3Negra(unPentagrama):
     mib3 = note.Note("E-3")
     unPentagrama.append(mib3)
+
+def sib3Negra(unPentagrama):
+    sib3 = note.Note("B-3")
+    unPentagrama.append(sib3)
 
 def re5BlancaYPunto(unPentagrama):
     re5 = note.Note("D5")
@@ -80,6 +88,11 @@ def do5Corchea(unPentagrama):
     do5 = note.Note("C5")
     do5.duration.quarterLength = 0.5
     unPentagrama.append(do5)
+
+def mib3Corchea(unPentagrama):
+    mib3 = note.Note("E-3")
+    mib3.duration.quarterLength = 0.5
+    unPentagrama.append(mib3)
 
 def mib4Corchea(unPentagrama):
     mib4 = note.Note("E-4")
@@ -305,6 +318,11 @@ mib3Negra(pentagrama2)
 do4Sol4Lab4(pentagrama2)
 do4Fa4Sol4(pentagrama2)
 do4Mib4Fa4(pentagrama2)
+sib3Corchea(pentagrama2)
+mib4Corchea(pentagrama2)
+re3Negra(pentagrama2)
+sib3Negra(pentagrama2)
+
 
 # parte de violin
 pentagrama3 = stream.Part()
@@ -334,8 +352,8 @@ fa5BlancaYPunto(pentagrama3)
 partitura.append(pentagrama1)
 partitura.append(pentagrama2)
 partitura.append(pentagrama3)
-# partitura.show()
+partitura.show()
 
 # Crear y escribir la cancion
-partitura.write('midi', 'hollowknight.mid')
+# partitura.write('midi', 'hollowknight.mid')
 
