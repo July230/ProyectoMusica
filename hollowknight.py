@@ -2,7 +2,7 @@
 Ian Julián Estrada Castro 
 """
 
-from music21 import note, stream, chord, tempo, clef, meter, instrument
+from music21 import note, stream, chord, tempo, clef, meter, instrument, spanner
 
 def piano(unPentagrama):
     unPentagrama.insert(0, instrument.Piano())
@@ -54,6 +54,16 @@ def sol4BlancaYPunto(unPentagrama):
     sol4.duration.quarterLength = 3
     unPentagrama.append(sol4)
 
+def fa5BlancaYPunto(unPentagrama):
+    fa5 = note.Note("F5")
+    fa5.duration.quarterLength = 3
+    unPentagrama.append(fa5)
+
+def fa4Blanca(unPentagrama):
+    fa4 = note.Note("F4")
+    fa4.duration.quarterLength = 2
+    unPentagrama.append(fa4)
+
 def do5Corchea(unPentagrama):
     do5 = note.Note("C5")
     do5.duration.quarterLength = 0.5
@@ -68,6 +78,11 @@ def fa4Corchea(unPentagrama):
     fa4 = note.Note("F4")
     fa4.duration.quarterLength = 0.5
     unPentagrama.append(fa4)
+
+def sib3(unPentagrama):
+    sib3 = note.Note("B-3")
+    sib3.duration.quarterLength = 0.5
+    unPentagrama.append(sib3)
 
 def re5Mib5Corcheas(unPentagrama):
     re5 = note.Note("D5")
@@ -154,7 +169,6 @@ def do4Re4Mib4Re4Sib3(unPentagrama):
     unPentagrama.append(sib3)
 
 
-
 # Crear la partitura
 partitura = stream.Score()
 
@@ -172,6 +186,10 @@ solSostenido4Negra(pentagrama1)
 sol4Corchea(pentagrama1)
 fa4Corchea(pentagrama1)
 sol4BlancaYPunto(pentagrama1)
+for i in range(2):
+    do5Negra(pentagrama1)
+re5Mib5Corcheas(pentagrama1)
+fa5BlancaYPunto(pentagrama1)
 
 # Crear segundo pentagrama que va a contener la melodia
 pentagrama2 = stream.Part()
@@ -181,6 +199,11 @@ do4Sol4Lab4(pentagrama2)
 do4Fa4Sol4(pentagrama2)
 do4Mib4Fa4(pentagrama2)
 do4Re4Mib4Re4Sib3(pentagrama2)
+do4Sol4Lab4(pentagrama2)
+sib3(pentagrama2)
+sol4Corchea(pentagrama2)
+fa4Blanca(pentagrama2)
+
 
 partitura.append(pentagrama1)
 partitura.append(pentagrama2)
