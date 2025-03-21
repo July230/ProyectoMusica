@@ -150,19 +150,19 @@ def segunda_melodia_izquierda(mi_izquierda):
     
     n8i = chord.Chord(["G#3", "C#4"])
     n8i.duration.quarterLength = .75
-    mi_izquierda.append(n8i)    #10
+    mi_izquierda.append(n8i)    #9.5
     
     n9i = note.Note("F#3")
     n9i.duration.quarterLength = .75
-    mi_izquierda.append(n9i)    #8.75
+    mi_izquierda.append(n9i)    #10.25
     
     n10i = note.Note("A#3")
     n10i.duration.quarterLength = .75
-    mi_izquierda.append(n10i)    #8.75
+    mi_izquierda.append(n10i)    #11
     
     n11i = note.Note("C#4")
     n11i.duration.quarterLength = .75
-    mi_izquierda.append(n11i)    #8.75
+    mi_izquierda.append(n11i)    #11.75 TOTAL = 23.25
     
     
 def segunda_melodia_derecha(mi_derecha):
@@ -214,25 +214,20 @@ def segunda_melodia_derecha(mi_derecha):
 
     n10d = note.Note("F#5")
     n10d.duration.quarterLength = 1.25
-    mi_derecha.append(n10d) #10
-    
-    silencio2 = note.Rest()
-    silencio2.quarterLength = 1.5
-    mi_derecha.append(silencio2)  #11.5
+    mi_derecha.append(n10d) #10 TOTAL = 21.5
 
 
-    
-    
-primera_melodia_derecha(derecha)
 primera_melodia_izquierda(izquierda)
-segunda_melodia_derecha(derecha)
 segunda_melodia_izquierda(izquierda)
+primera_melodia_derecha(derecha)
+segunda_melodia_derecha(derecha)
 
 pentagrama.append([izquierda, derecha])
-pentagrama.show()
+#pentagrama.show('text')
+#pentagrama.show()
 
 #izquierda.show()
 #derecha.show()
-#pentagrama.show("midi")
+pentagrama.show("midi")
 
 #pentagrama.write('midi', 'by_your_side.midi')
