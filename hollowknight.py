@@ -334,7 +334,8 @@ fa5BlancaYPunto(pentagrama3)
 partitura.append(pentagrama1)
 partitura.append(pentagrama2)
 partitura.append(pentagrama3)
-partitura.show()
+# partitura.show()
 
 # Crear y escribir la cancion
-# partitura.write('midi', 'hollowknight.mid')
+partitura.write('midi', 'hollowknight.mid')
+

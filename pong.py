@@ -5,6 +5,9 @@ https://www.geeksforgeeks.org/create-a-pong-game-in-python-pygame/
 """
 
 import pygame
+import time
+import random
+from pygame import mixer
 
 pygame.init()
 
