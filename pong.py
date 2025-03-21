@@ -161,6 +161,7 @@ class Ball:
 
 # Game Manager
 def main():
+	global music_paused_time  # Necesario para modificar la variable global
 	running = True
 
 	# Defining the objects
@@ -176,6 +177,7 @@ def main():
 
 	while running:
 		screen.fill(BLACK)
+		current_time = pygame.time.get_ticks()  # Obtener el tiempo actual
 
 		# Event handling
 		for event in pygame.event.get():
@@ -184,17 +186,30 @@ def main():
 			if event.type == pygame.KEYDOWN:
 				if event.key == pygame.K_UP:
 					geek2YFac = -1
+					unpause_midi()  # Reanudar música un instante
+					music_paused_time = current_time + pause_duration
 				if event.key == pygame.K_DOWN:
 					geek2YFac = 1
+					unpause_midi()  # Reanudar música un instante
+					music_paused_time = current_time + pause_duration
 				if event.key == pygame.K_w:
 					geek1YFac = -1
+					unpause_midi()  # Reanudar música un instante
+					music_paused_time = current_time + pause_duration
 				if event.key == pygame.K_s:
 					geek1YFac = 1
+					unpause_midi()  # Reanudar música un instante
+					music_paused_time = current_time + pause_duration
 			if event.type == pygame.KEYUP:
 				if event.key == pygame.K_UP or event.key == pygame.K_DOWN:
 					geek2YFac = 0
 				if event.key == pygame.K_w or event.key == pygame.K_s:
 					geek1YFac = 0
+		
+        # Verificar si ya pasó el tiempo de pausa programada
+		if music_paused_time and current_time >= music_paused_time:
+			pause_midi()
+			music_paused_time = 0  # Resetear la pausa
 
 		# Collision detection
 		for geek in listOfGeeks:
