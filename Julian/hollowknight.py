@@ -49,6 +49,10 @@ def solSostenido4Negra(unPentagrama):
     solSostenido4 = note.Note("G#4")
     unPentagrama.append(solSostenido4)
 
+def mib3Negra(unPentagrama):
+    mib3 = note.Note("E-3")
+    unPentagrama.append(mib3)
+
 def re5BlancaYPunto(unPentagrama):
     re5 = note.Note("D5")
     re5.duration.quarterLength = 3
@@ -230,6 +234,11 @@ def sol5Mib5Re5Do5Sib4(unPentagrama):
     sib4.duration.quarterLength = 1
     unPentagrama.append(sib4)
 
+# acordes
+def acordeFaMayor(unPentagrama):
+    faMayor = chord.Chord(["F3", "A3", "C4", "F4"])
+    faMayor.duration.quarterLength = 2
+    unPentagrama.append(faMayor)
 
 # Crear la partitura
 partitura = stream.Score()
@@ -255,6 +264,7 @@ re5Mib5Corcheas(pentagrama1)
 fa5BlancaYPunto(pentagrama1)
 sol5Mib5Re5Do5Sib4(pentagrama1)
 do5BlancaYPunto(pentagrama1)
+silencioDeBlancoYMedio(pentagrama1)
 
 # Crear segundo pentagrama que va a contener la melodia
 # mano izquierda
@@ -273,6 +283,8 @@ lab3Corchea(pentagrama2)
 mib4Corchea(pentagrama2)
 fa4Blanca(pentagrama2)
 fa3Sib3Do4Fa4Do4Sib3(pentagrama2)
+acordeFaMayor(pentagrama2)
+mib3Negra(pentagrama2)
 
 
 
