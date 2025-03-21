@@ -272,6 +272,16 @@ for i in range(2):
     do5Negra(pentagrama1)
 re5Mib5Corcheas(pentagrama1)
 re5BlancaYPunto(pentagrama1)
+do5Corchea(pentagrama1)
+sol4Corchea(pentagrama1)
+solSostenido4Negra(pentagrama1)
+sol4Corchea(pentagrama1)
+fa4Corchea(pentagrama1)
+sol4BlancaYPunto(pentagrama1)
+for i in range(2):
+    do5Negra(pentagrama1)
+re5Mib5Corcheas(pentagrama1)
+fa5BlancaYPunto(pentagrama1)
 
 # Crear segundo pentagrama que va a contener la melodia
 # mano izquierda
@@ -307,6 +317,16 @@ for i in range(2):
     do5Negra(pentagrama3)
 re5Mib5Corcheas(pentagrama3)
 re5BlancaYPunto(pentagrama3)
+do5Corchea(pentagrama3)
+sol4Corchea(pentagrama3)
+solSostenido4Negra(pentagrama3)
+sol4Corchea(pentagrama3)
+fa4Corchea(pentagrama3)
+sol4BlancaYPunto(pentagrama3)
+for i in range(2):
+    do5Negra(pentagrama3)
+re5Mib5Corcheas(pentagrama3)
+fa5BlancaYPunto(pentagrama3)
 
 
 
